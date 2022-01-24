@@ -23,7 +23,7 @@ public class SipmleCalculator{
         }
     }
 
-    //Добавление операций в калькулятор, без повторейни
+    //Добавление операций в калькулятор, без повторений
     private void add(Operations operation) {
         boolean met = false;
         for (Operations someOperation : this.operations) {
@@ -51,9 +51,11 @@ public class SipmleCalculator{
     }
 
     //Устанавливаем номер операции, если возможно, иначе оставляем текущий номер операции
-    public void setCurrentOperaion (int operation) {
+    public void setCurrentOperaion (int operation) throws Exception {
         if ((operation >= 1) && (operation <= getCountOperation())) {
             this.currentOperaion = operation - 1;
+        }else {
+            throw new Exception("The entered value doesn't correspond to the available operations");
         }
     }
 
@@ -84,7 +86,7 @@ public class SipmleCalculator{
 
     //Текущее значения переменных и выбранная операция
     public String showCurrentValues() {
-        return "Value A = " + operandA + ",\nValue B = " + operandB + ",\ncurrentOperation is " + getNameCurrentOperation();
+        return "Value A = " + operandA + ",\nValue B = " + operandB + ",\ncurrent operation is " + getNameCurrentOperation();
     }
 
     //получение количества доступных в калькуляторе операций
@@ -93,7 +95,7 @@ public class SipmleCalculator{
     }
 
     //Рассчёт на основе имеющихся данных
-    public double calculate(){
-        return operations.get(currentOperaion).calculate(operandA,operandB);
+    public double calculate() throws Exception {
+            return operations.get(currentOperaion).calculate(operandA,operandB);
     }
 }

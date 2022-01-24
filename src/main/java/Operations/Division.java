@@ -1,7 +1,7 @@
 package Operations;
 
 public class Division extends Operations {
-    private final String nameOperation = "Division";
+    private String nameOperation = "Division";
 
     @Override
     public String getNameOperation() {
@@ -9,5 +9,11 @@ public class Division extends Operations {
     }
 
     @Override
-    public double calculate(double a, double b) { return a / b; }
+    public double calculate(double a, double b) throws Exception {
+        if (b == 0) {
+            throw new ArithmeticException("division by zero");
+        } else {
+            return a / b;
+        }
+    }
 }
