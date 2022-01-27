@@ -9,7 +9,7 @@ public class Division extends Operations {
     }
 
     @Override
-    public double calculate(double a, double b) throws Exception {
+    public double calculate(double a, double b) throws ArithmeticException {
         if (b == 0) {
             throw new ArithmeticException("division by zero");
         } else {

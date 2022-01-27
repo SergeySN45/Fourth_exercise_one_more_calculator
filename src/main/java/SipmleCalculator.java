@@ -47,7 +47,7 @@ public class SipmleCalculator{
 
     //Выбранный на данный момент номер операции
     public int getCurrentOperaion () {
-        return this.currentOperaion;
+        return this.currentOperaion + 1;
     }
 
     //Устанавливаем номер операции, если возможно, иначе оставляем текущий номер операции
